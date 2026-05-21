@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [Header("Настройки камня")]
-    public float damage = 100f;
+    [Header("Настройки урона")]
+    public float minDamage = 40f;      // минимальный урон
+    public float maxDamage = 160f;     // максимальный урон при сильном ударе
     public float maxLifetime = 15f;
     public float velocityDamping = 0.92f;
 
@@ -28,39 +29,44 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log($"💥 Камень ударился в: {collision.gameObject.name} | Тег: {collision.gameObject.tag}");
+        float impactSpeed = rb.linearVelocity.magnitude;
+        float finalDamage = CalculateDamage(impactSpeed);
+
+        Debug.Log($"💥 Удар со скоростью {impactSpeed:F1} | Урон: {finalDamage:F0}");
 
         if (collision.gameObject.CompareTag("Target"))
         {
             Destructible dest = collision.gameObject.GetComponent<Destructible>();
             if (dest != null)
             {
-                dest.TakeDamage(damage);
+                dest.TakeDamage(finalDamage);
 
-                // Обновляем UI
                 UIManager ui = FindObjectOfType<UIManager>();
-                if (ui != null)
-                    ui.RegisterHit();
-            }
-            else
-            {
-                Debug.LogWarning("На цели нет Destructible!");
+                if (ui != null) ui.RegisterHit();
             }
         }
         else
         {
-            // Попадание не в цель (земля, стена и т.д.)
             UIManager ui = FindObjectOfType<UIManager>();
-            if (ui != null)
-                ui.ShowMiss();
+            if (ui != null) ui.ShowMiss();
         }
 
-        // Реалистичное затухание после отскока
+        // Затухание после удара
         if (rb != null)
         {
             rb.linearVelocity *= velocityDamping;
             rb.angularVelocity *= 0.85f;
         }
+    }
+
+    /// <summary>
+    /// Расчёт урона по скорости удара
+    /// </summary>
+    private float CalculateDamage(float speed)
+    {
+        // Нормализуем скорость (примерно от 0 до 50-60)
+        float normalized = Mathf.Clamp01(speed / 45f);
+        return Mathf.Lerp(minDamage, maxDamage, normalized);
     }
 
     public void StopProjectile()
@@ -77,7 +83,6 @@ public class Projectile : MonoBehaviour
     private void ReturnToTrebuchet()
     {
         StopProjectile();
-
         if (controller != null)
             controller.ResetProjectile();
     }

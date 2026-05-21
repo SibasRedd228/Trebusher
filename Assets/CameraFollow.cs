@@ -2,10 +2,19 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [Header("Настройки камеры")]
-    public Transform target;                    // снаряд
-    public Vector3 offset = new Vector3(0, 8f, -18f);   // сзади и сверху
-    public float smoothSpeed = 8f;
+    [Header("Configuración de Cámara - Vista Lateral (Angry Birds Style)")]
+    public Transform target;
+
+    [Tooltip("Расстояние сбоку (влево/вправо). Изменяй для инверсии вида")]
+    public float sideOffset = -15f;        // ← отрицательное = с другой стороны
+
+    [Tooltip("Высота камеры")]
+    public float heightOffset = 9f;
+
+    [Tooltip("Отдаление назад")]
+    public float backOffset = 8f;
+
+    public float smoothSpeed = 7f;
     public float rotationSpeed = 5f;
 
     private Vector3 defaultPosition;
@@ -22,35 +31,41 @@ public class CameraFollow : MonoBehaviour
     {
         if (target == null) return;
 
-        // Камера всегда позади шара по направлению его движения
-        Vector3 velocity = target.GetComponent<Rigidbody>().linearVelocity;
+        Rigidbody rb = target.GetComponent<Rigidbody>();
+        Vector3 velocity = rb.linearVelocity;
 
         Vector3 desiredPosition;
 
         if (velocity.magnitude > 2f)
         {
-            // Летим сзади по направлению полёта
-            Vector3 backOffset = -velocity.normalized * 18f;
-            desiredPosition = target.position + backOffset + Vector3.up * 8f;
+            // Основная логика: камера строго сбоку + немного сзади
+            Vector3 sideDir = Vector3.Cross(Vector3.up, velocity.normalized).normalized;
+
+            desiredPosition = target.position 
+                            + sideDir * sideOffset           // Сбоку (меняй знак для инверсии)
+                            + Vector3.up * heightOffset      // Высота
+                            - velocity.normalized * backOffset; // Немного сзади
         }
         else
         {
-            // Когда скорость маленькая — используем обычный offset
-            desiredPosition = target.position + offset;
+            // Когда шар почти остановился — комфортный боковой вид
+            desiredPosition = target.position + new Vector3(sideOffset * 0.8f, heightOffset, backOffset * 0.6f);
         }
 
         // Плавное движение
-        transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref currentVelocity, 1f / smoothSpeed);
+        transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, 
+                                               ref currentVelocity, 1f / smoothSpeed);
 
-        // Камера всегда смотрит на шар
-        Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
+        // Всегда смотрим точно на шар
+        Vector3 lookDirection = target.position - transform.position;
+        Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
     public void SetTarget(Transform newTarget)
     {
         target = newTarget;
-        currentVelocity = Vector3.zero; // сбрасываем инерцию
+        currentVelocity = Vector3.zero;
     }
 
     public void ResetToDefault()

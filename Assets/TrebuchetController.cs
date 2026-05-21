@@ -10,7 +10,7 @@ public class TrebuchetController : MonoBehaviour
     public TrajectoryLine trajectoryLine;
     public GhostTrajectory ghostTrajectory;
     public CameraFollow cameraFollow;
-    public UIManager uiManager;                    // ← Новый UI менеджер
+    public UIManager uiManager;
 
     [Header("Сила броска")]
     [Range(15f, 65f)]
@@ -54,7 +54,6 @@ public class TrebuchetController : MonoBehaviour
 
     void Update()
     {
-        // Рисуем текущую траекторию
         if (!launched && trajectoryLine != null && projectile != null)
         {
             Vector3 startPosCurrent = projectile.transform.position;
@@ -79,7 +78,6 @@ public class TrebuchetController : MonoBehaviour
         if (Input.GetKey(KeyCode.Q)) 
             currentForce = Mathf.Max(currentForce - 30f * Time.deltaTime, 15f);
 
-        // Обновление UI каждый кадр
         if (uiManager != null)
             uiManager.UpdateUI(currentForce, currentAngle);
 
@@ -104,12 +102,18 @@ public class TrebuchetController : MonoBehaviour
 
     private Vector3 GetLaunchVelocity()
     {
-        return releasePoint != null ? releasePoint.forward * currentForce : transform.forward * currentForce;
+        return releasePoint != null 
+            ? releasePoint.forward * currentForce 
+            : transform.forward * currentForce;
     }
 
     public void Launch()
     {
         launched = true;
+
+        // === Увеличиваем счётчик попыток ===
+        if (uiManager != null)
+            uiManager.RegisterAttempt();
 
         if (animator != null)
         {
@@ -140,7 +144,10 @@ public class TrebuchetController : MonoBehaviour
         projectile.transform.SetParent(null);
         rbProjectile.isKinematic = false;
         rbProjectile.WakeUp();
-        rbProjectile.linearVelocity = GetLaunchVelocity();
+        rbProjectile.linearVelocity = Vector3.zero;
+
+        Vector3 launchVelocity = GetLaunchVelocity();
+        rbProjectile.linearVelocity = launchVelocity;
     }
 
     public void ResetProjectile()

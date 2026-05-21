@@ -8,19 +8,24 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI forceText;
     public TextMeshProUGUI angleText;
     public TextMeshProUGUI hitsText;
-    public TextMeshProUGUI messageText;
+    public TextMeshProUGUI attemptsText;      // Contador de intentos
+    public TextMeshProUGUI messageText;       // Mensajes centrales (éxito, fallo, victoria)
 
-    private int hitCount = 0;
+    private int hitCount = 0;                 // Impactos exitosos
+    private int attemptCount = 0;             // Intentos realizados (máximo 3)
 
     private void Start()
     {
         UpdateUI(38f, 35f);
         if (messageText != null) 
             messageText.text = "";
+        
+        if (attemptsText != null)
+            attemptsText.text = "INTENTOS: 0/3";
     }
 
     /// <summary>
-    /// Actualiza los valores de fuerza y ángulo en la UI
+    /// Actualiza la fuerza y el ángulo en la UI cada frame
     /// </summary>
     public void UpdateUI(float force, float angle)
     {
@@ -30,7 +35,23 @@ public class UIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Registra un impacto exitoso y verifica si se alcanzó la victoria
+    /// Registra un nuevo intento (se llama al presionar Space)
+    /// </summary>
+    public void RegisterAttempt()
+    {
+        attemptCount++;
+        if (attemptsText != null)
+            attemptsText.text = $"INTENTOS: {attemptCount}/3";
+
+        // Si se acabaron los 3 intentos y no se alcanzó la victoria
+        if (attemptCount >= 3 && hitCount < 2)
+        {
+            ShowMessage("¡SE TERMINARON LOS INTENTOS!", Color.red, 4f);
+        }
+    }
+
+    /// <summary>
+    /// Registra un impacto exitoso contra el objetivo
     /// </summary>
     public void RegisterHit()
     {
@@ -39,12 +60,12 @@ public class UIManager : MonoBehaviour
         if (hitsText != null)
             hitsText.text = $"IMPACTOS: {hitCount}";
 
-        ShowMessage("✅ ¡IMPACTO EXITOSO!", Color.green, 2f);
+        ShowMessage("✓ ¡IMPACTO EXITOSO!", Color.green, 2f);
 
-        // === VICTORIA DESPUÉS DE 2 IMPACTOS ===
+        // Victoria después de 2 impactos
         if (hitCount >= 2)
         {
-            GameManager gm = FindObjectOfType<GameManager>();
+            GameManager gm = FindFirstObjectByType<GameManager>();
             if (gm != null)
                 gm.RegisterVictory();
         }
@@ -52,9 +73,12 @@ public class UIManager : MonoBehaviour
 
     public void ShowMiss()
     {
-        ShowMessage("❌ FALLASTE", Color.yellow, 1.8f);
+        ShowMessage("✕ FALLASTE", Color.yellow, 1.8f);
     }
 
+    /// <summary>
+    /// Muestra un mensaje temporal en el centro de la pantalla
+    /// </summary>
     private void ShowMessage(string text, Color color, float duration)
     {
         if (messageText == null) return;

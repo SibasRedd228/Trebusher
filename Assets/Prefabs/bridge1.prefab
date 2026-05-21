@@ -98,7 +98,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -136,7 +136,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa2ef7f86515b054c81505ab1e4aa300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Destructible
-  brokenPrefab: {fileID: 1691820414028364513, guid: b3fc60522c5247c48a0b05311d100188, type: 3}
-  explosionForce: 10
-  explosionRadius: 6
   health: 100
+  destroyedVersion: {fileID: 2524327671987015834, guid: b3fc60522c5247c48a0b05311d100188, type: 3}

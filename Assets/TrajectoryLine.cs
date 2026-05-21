@@ -4,9 +4,14 @@ using System.Collections.Generic;
 [RequireComponent(typeof(LineRenderer))]
 public class TrajectoryLine : MonoBehaviour
 {
-    [Header("Настройки траектории")]
+    [Header("Configuración de la Trayectoria")]
+    [Tooltip("Cantidad de puntos en la línea (mayor = más suave)")]
     public int resolution = 120;
+
+    [Tooltip("Tiempo máximo de simulación en segundos")]
     public float maxTime = 15f;
+
+    [Tooltip("Paso de tiempo (más pequeño = más precisión)")]
     public float timeStep = 0.07f;
 
     private LineRenderer lineRenderer;
@@ -17,7 +22,9 @@ public class TrajectoryLine : MonoBehaviour
     }
 
     /// <summary>
-    /// Правильная 3D траектория по кинематическим формулам
+    /// Dibuja la trayectoria usando fórmulas cinemáticas en 3D
+    /// x = x0 + vx * t + 0.5 * ax * t²
+    /// y = y0 + vy * t + 0.5 * ay * t²
     /// </summary>
     public void DrawTrajectory(Vector3 startPos, Vector3 initialVelocity)
     {
@@ -32,12 +39,12 @@ public class TrajectoryLine : MonoBehaviour
         {
             float t = i * timeStep;
 
-            // Кинематическая формула в 3D
+            // Fórmula cinemática 3D
             Vector3 point = startPos + vel * t + 0.5f * Physics.gravity * t * t;
 
             points.Add(point);
 
-            // Останавливаемся, если упали ниже земли
+            // Detener la línea si toca el suelo
             if (point.y < 0.3f)
                 break;
         }
@@ -46,9 +53,19 @@ public class TrajectoryLine : MonoBehaviour
         lineRenderer.SetPositions(points.ToArray());
     }
 
+    /// <summary>
+    /// Muestra la línea de trayectoria
+    /// </summary>
     public void Show() => lineRenderer.enabled = true;
+
+    /// <summary>
+    /// Oculta la línea de trayectoria
+    /// </summary>
     public void Hide() => lineRenderer.enabled = false;
 
+    /// <summary>
+    /// Devuelve los puntos de la trayectoria (usado por GhostTrajectory)
+    /// </summary>
     public Vector3[] GetTrajectoryPoints(Vector3 startPos, Vector3 initialVelocity)
     {
         DrawTrajectory(startPos, initialVelocity);

@@ -1,11 +1,22 @@
 [Licensing::Module] Trying to connect to existing licensing client channel...
 Built from '6000.4/staging' branch; Version is '6000.4.5f1 (cc83ebd631f8) revision 13403115'; Using compiler version '194234433'; Build Type 'Release'
 OS: 'Windows 11  (10.0.26200) Core' Language: 'ru' Physical Memory: 32433 MB
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-sibas" at "2026-05-14T04:41:01.8858202Z"
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-sibas" at "2026-05-18T22:01:34.3524855Z"
 System  architecture: x64
 Process architecture: x64
-Date: 2026-05-14T04:41:01Z
+Date: 2026-05-18T22:01:34Z
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 19716, path: "C:/Program Files/Unity/Hub/Editor/6000.4.5f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.1+9fbee8e
+  Session Id:              7e131572839b48ddb97e2d2435644f78
+  Correlation Id:          8174e69f02c87971fd6c1714745f7c30
+  External correlation Id: 2311029662756998471
+  Machine Id:              U2iUz2Qc6w6aCelJKsxssaM+534=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-sibas" (connect: 0.00s, validation: 0.00s, handshake: 0.05s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-sibas-notifications" at "2026-05-18T22:01:34.4025264Z"
+[Licensing::Module] Licensing Background thread has ended after 0.05s
 
 COMMAND LINE ARGUMENTS:
 C:\Program Files\Unity\Hub\Editor\6000.4.5f1\Editor\Unity.exe
@@ -19,7 +30,7 @@ C:/zAEBALo/Trebusher2.0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-60271
+65198
 -licensingIpc
 LicenseClient-sibas
 -force-d3d12
@@ -68,12 +79,12 @@ C:/zAEBALo/Trebusher2.0
     "memorysetup-job-temp-allocator-block-size=2097152"
     "memorysetup-job-temp-allocator-block-size-background=1048576"
     "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
-Player connection [13092]  Target information:
+Player connection [5232]  Target information:
 
-Player connection [13092]  * "[IP] 192.168.1.8 [Port] 0 [Flags] 2 [Guid] 3218099979 [EditorId] 3218099979 [Version] 1048832 [Id] WindowsEditor(7,MrRobot) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [5232]  * "[IP] 192.168.1.8 [Port] 0 [Flags] 2 [Guid] 2248566677 [EditorId] 2248566677 [Version] 1048832 [Id] WindowsEditor(7,MrRobot) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [13092] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [13092] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [5232] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [5232] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 9
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
@@ -85,7 +96,7 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 2.94 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 4.02 ms, found 4 plugins.
 Initialize engine version: 6000.4.5f1 (cc83ebd631f8)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.4.5f1/Editor/Data/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path C:/zAEBALo/Trebusher2.0/Assets
@@ -99,34 +110,17 @@ Direct3D:
     VRAM:            8017 MB
     App VRAM Budget: 7249 MB
     Driver:          32.0.15.9636
-[Licensing::Client] Error: HandshakeResponse reported an error:
-	ResponseCode: 505
-	ResponseStatus: Unsupported protocol version '1.18.1'.
-[Licensing::Module] Error: Failed to handshake to channel: "LicenseClient-sibas"
-[Licensing::IpcConnector] LicenseClient-sibas channel disconnected successfully.
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-sibas-6000.4.5" at "2026-05-14T04:41:03.1125998Z"
-[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 23684, path: "C:/Program Files/Unity/Hub/Editor/6000.4.5f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
-[Licensing::Module] LicensingClient has failed validation; ignoring
-[Licensing::Client] Handshaking with LicensingClient:
-  Version:                 1.18.1+9fbee8e
-  Session Id:              6b1260bc09f74a74a8cc5e03a46ea72e
-  Correlation Id:          13cb32f623efeeb53785ddab4298bd52
-  External correlation Id: 2846740909699310540
-  Machine Id:              U2iUz2Qc6w6aCelJKsxssaM+534=
-[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-sibas-6000.4.5" (connect: 0.00s, validation: 0.00s, handshake: 0.01s)
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-sibas-6000.4.5-notifications" at "2026-05-14T04:41:03.1248785Z"
-[Licensing::Module] Licensing Background thread has ended after 1.24s
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.4.5f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.4.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.4.5f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56712
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56812
 CodeReloadManager initialized
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.4.5f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.4.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001401 seconds.
+Registered in 0.003501 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Package Manager log level set to [2]
@@ -135,23 +129,23 @@ Package Manager log level set to [2]
 [Package Manager] Cannot connect to Unity Package Manager local server
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.436 seconds
-Domain Reload Profiling: 972ms
-	BeginReloadAssembly (157ms)
-	RebuildCommonClasses (49ms)
+- Finished resetting the current domain, in  0.506 seconds
+Domain Reload Profiling: 1120ms
+	BeginReloadAssembly (173ms)
+	RebuildCommonClasses (51ms)
 	RebuildNativeTypeToScriptingClass (16ms)
-	initialDomainReloadingComplete (64ms)
-	LoadAllAssembliesAndSetupDomain (247ms)
-		LoadAssemblies (154ms)
-		AnalyzeDomain (237ms)
-			TypeCache.Refresh (237ms)
-				TypeCache.ScanAssembly (221ms)
-	FinalizeReload (438ms)
+	initialDomainReloadingComplete (80ms)
+	LoadAllAssembliesAndSetupDomain (292ms)
+		LoadAssemblies (169ms)
+		AnalyzeDomain (278ms)
+			TypeCache.Refresh (277ms)
+				TypeCache.ScanAssembly (259ms)
+	FinalizeReload (508ms)
 		SetupLoadedEditorAssemblies (0ms)
-			InitializePlatformSupportModulesInManaged (52ms)
-			BeforeProcessingInitializeOnLoad (91ms)
-			ProcessInitializeOnLoadAttributes (120ms)
-			ProcessInitializeOnLoadMethodAttributes (99ms)
+			InitializePlatformSupportModulesInManaged (65ms)
+			BeforeProcessingInitializeOnLoad (121ms)
+			ProcessInitializeOnLoadAttributes (125ms)
+			ProcessInitializeOnLoadMethodAttributes (95ms)
 ========================================================================
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
@@ -201,119 +195,61 @@ Native extension for WebGL target not found
 [Package Manager] Cannot connect to Unity Package Manager local server
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.825 seconds
-Domain Reload Profiling: 1736ms
-	BeginReloadAssembly (209ms)
-		DisableScriptedObjects (8ms)
-		CreateAndSetChildDomain (35ms)
-	RebuildCommonClasses (47ms)
-	RebuildNativeTypeToScriptingClass (17ms)
-	initialDomainReloadingComplete (91ms)
-	LoadAllAssembliesAndSetupDomain (545ms)
-		LoadAssemblies (368ms)
-		AnalyzeDomain (275ms)
-			TypeCache.Refresh (197ms)
-				TypeCache.ScanAssembly (180ms)
-			BuildScriptInfoCaches (64ms)
-			ResolveRequiredComponents (13ms)
-	FinalizeReload (826ms)
+- Finished resetting the current domain, in  0.991 seconds
+Domain Reload Profiling: 1939ms
+	BeginReloadAssembly (192ms)
+		DisableScriptedObjects (6ms)
+		CreateAndSetChildDomain (32ms)
+	RebuildCommonClasses (51ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (73ms)
+	LoadAllAssembliesAndSetupDomain (617ms)
+		LoadAssemblies (393ms)
+		AnalyzeDomain (323ms)
+			TypeCache.Refresh (230ms)
+				TypeCache.ScanAssembly (213ms)
+			BuildScriptInfoCaches (77ms)
+			ResolveRequiredComponents (15ms)
+	FinalizeReload (991ms)
 		SetupLoadedEditorAssemblies (0ms)
-			InitializePlatformSupportModulesInManaged (3ms)
-			BeforeProcessingInitializeOnLoad (159ms)
-			ProcessInitializeOnLoadAttributes (342ms)
-			ProcessInitializeOnLoadMethodAttributes (81ms)
-			AfterProcessingInitializeOnLoad (4ms)
-		AwakeInstancesAfterBackupRestoration (6ms)
+			InitializePlatformSupportModulesInManaged (4ms)
+			BeforeProcessingInitializeOnLoad (189ms)
+			ProcessInitializeOnLoadAttributes (423ms)
+			ProcessInitializeOnLoadMethodAttributes (92ms)
+			AfterProcessingInitializeOnLoad (5ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Refreshing native plugins compatible for Editor in 2.11 ms, found 4 plugins.
 Unloading 24 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6545 unused Assets / (5.5 MB). Loaded Objects now: 7368.
-Memory consumption went from 163.2 MB to 157.6 MB.
-Total: 8.422300 ms (FindLiveObjects: 0.573400 ms CreateObjectMapping: 0.595400 ms MarkObjects: 4.784000 ms  DeleteObjects: 2.466100 ms)
+Unloading 6545 unused Assets / (4.9 MB). Loaded Objects now: 7368.
+Memory consumption went from 159.6 MB to 154.8 MB.
+Total: 8.634900 ms (FindLiveObjects: 1.007700 ms CreateObjectMapping: 0.633600 ms MarkObjects: 4.712300 ms  DeleteObjects: 2.278000 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 4694.595833 seconds.
-  path: Assets/UIManager.cs
-  importAddress: Guid(90971d03f2447d7409ffea6409561a0a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/UIManager.cs using Guid(90971d03f2447d7409ffea6409561a0a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (Import Result ID: '9b1a9b8412d596bc77829d2edd00e47c') in 0.0855653 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=9ecfc825297081c948d5720fc4adeba0 DependenciesID=c18363612002c4228235748fc33da581 StaticDependenciesID=c5447688ff1a3249214f8186911bc4ab 
+  Time since last request: 85504.011678 seconds.
+  path: Assets/GhostTrajectory.cs
+  importAddress: Guid(96ca9a51638ff794c833973aa73373dc) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GhostTrajectory.cs using Guid(96ca9a51638ff794c833973aa73373dc) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (Import Result ID: 'bb18de4ccd4605925deb90f8c03617ee') in 0.0984323 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=3abed71905e8ebf15ef705138da12899 DependenciesID=1276f6c9e5a7462ea8450e6fdaca923f StaticDependenciesID=17718aa801ce8d70c0d89df488b3ec6e 
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
-  importAddress: Guid(2e498d1c8094910479dc3e1b768306a4) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset using Guid(2e498d1c8094910479dc3e1b768306a4) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (Import Result ID: '514594b9ad123a03482100ff6be078d7') in 0.0741294 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=08bcdf604352d730416ec762cd039185 DependenciesID=99a98ba9f7dab8a206ae74d1e2418f1b StaticDependenciesID=be8040a0995354a5f89f6d3c7c5c4732 
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+  Time since last request: 0.000024 seconds.
+  path: Assets/Prefabs/bridge1broke.prefab
+  importAddress: Guid(b3fc60522c5247c48a0b05311d100188) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Prefabs/bridge1broke.prefab using Guid(b3fc60522c5247c48a0b05311d100188) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (Import Result ID: '7ea45b5f97403a295c67272d44bce6a3') in 0.073323 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=58cb0c092f9fe23d4152f018f2d1958a DependenciesID=2a3efde560e043638a8502b89083dde7 StaticDependenciesID=9e1cedf4e8a635216c7c07d87fb737c1 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1137
 
 ========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-[Licensing::Client] Successfully resolved entitlement details
-Assembly Assembly-CSharp-Editor-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll not valid. Loading of assembly skipped.
-Assembly Assembly-CSharp-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll not valid. Loading of assembly skipped.
-Assembly DocCodeExamples.dll at Library/ScriptAssemblies/DocCodeExamples.dll not valid. Loading of assembly skipped.
-Assembly TestNewCustomAssembly.dll at Library/ScriptAssemblies/TestNewCustomAssembly.dll not valid. Loading of assembly skipped.
-Assembly Unity.Collections.BurstCompatibilityGen.dll at Library/ScriptAssemblies/Unity.Collections.BurstCompatibilityGen.dll not valid. Loading of assembly skipped.
-Assembly Unity.Collections.DocCodeSamples.dll at Library/ScriptAssemblies/Unity.Collections.DocCodeSamples.dll not valid. Loading of assembly skipped.
-Assembly Unity.Collections.PerformanceTests.dll at Library/ScriptAssemblies/Unity.Collections.PerformanceTests.dll not valid. Loading of assembly skipped.
-Assembly Unity.Collections.Tests.dll at Library/ScriptAssemblies/Unity.Collections.Tests.dll not valid. Loading of assembly skipped.
-Assembly Unity.Collections.Tests.Playmode.dll at Library/ScriptAssemblies/Unity.Collections.Tests.Playmode.dll not valid. Loading of assembly skipped.
-Assembly Unity.InputSystem.IntegrationTests.dll at Library/ScriptAssemblies/Unity.InputSystem.IntegrationTests.dll not valid. Loading of assembly skipped.
-Assembly Unity.Mathematics.Tests.dll at Library/ScriptAssemblies/Unity.Mathematics.Tests.dll not valid. Loading of assembly skipped.
-Assembly Unity.Multiplayer.Center.Editor.Tests.dll at Library/ScriptAssemblies/Unity.Multiplayer.Center.Editor.Tests.dll not valid. Loading of assembly skipped.
-Assembly Unity.Multiplayer.Center.Tests.dll at Library/ScriptAssemblies/Unity.Multiplayer.Center.Tests.dll not valid. Loading of assembly skipped.
-Assembly Unity.Nuget.Mono-Cecil.dll at Library/ScriptAssemblies/Unity.Nuget.Mono-Cecil.dll not valid. Loading of assembly skipped.
-Assembly Unity.PathTracing.Editor.Tests.dll at Library/ScriptAssemblies/Unity.PathTracing.Editor.Tests.dll not valid. Loading of assembly skipped.
-Assembly Unity.PathTracing.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.PathTracing.Runtime.Tests.dll not valid. Loading of assembly skipped.
-Assembly Unity.RenderPipelines.Core.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.Tests.dll not valid. Loading of assembly skipped.
-Assembly Unity.RenderPipelines.Core.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.Tests.dll not valid. Loading of assembly skipped.
-Assembly Unity.RenderPipelines.Universal.Config.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Config.Editor.Tests.dll not valid. Loading of assembly skipped.
-Assembly Unity.RenderPipelines.Universal.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.Tests.dll not valid. Loading of assembly skipped.
-Assembly Unity.RenderPipelines.Universal.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.Tests.dll not valid. Loading of assembly skipped.
-Assembly Unity.Searcher.EditorTests.dll at Library/ScriptAssemblies/Unity.Searcher.EditorTests.dll not valid. Loading of assembly skipped.
-Assembly Unity.ShaderGraph.Editor.Tests.dll at Library/ScriptAssemblies/Unity.ShaderGraph.Editor.Tests.dll not valid. Loading of assembly skipped.
-Assembly Unity.TextMeshPro.Editor.Tests.dll at Library/ScriptAssemblies/Unity.TextMeshPro.Editor.Tests.dll not valid. Loading of assembly skipped.
-Assembly Unity.TextMeshPro.Tests.dll at Library/ScriptAssemblies/Unity.TextMeshPro.Tests.dll not valid. Loading of assembly skipped.
-Assembly Unity.UnifiedRayTracing.Editor.Tests.dll at Library/ScriptAssemblies/Unity.UnifiedRayTracing.Editor.Tests.dll not valid. Loading of assembly skipped.
-Assembly UnityEditor.UI.Common.Tests.dll at Library/ScriptAssemblies/UnityEditor.UI.Common.Tests.dll not valid. Loading of assembly skipped.
-Assembly UnityEditor.UI.EditorTests.dll at Library/ScriptAssemblies/UnityEditor.UI.EditorTests.dll not valid. Loading of assembly skipped.
-Assembly UnityEngine.UI.Tests.dll at Library/ScriptAssemblies/UnityEngine.UI.Tests.dll not valid. Loading of assembly skipped.
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] Unable to send message (not connected to server process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] Unable to send message (not connected to server process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.858 seconds
-Domain Reload Profiling: 1669ms
-	BeginReloadAssembly (222ms)
-		DisableScriptedObjects (6ms)
-		CreateAndSetChildDomain (50ms)
-	RebuildCommonClasses (41ms)
-	RebuildNativeTypeToScriptingClass (15ms)
-	initialDomainReloadingComplete (57ms)
-	LoadAllAssembliesAndSetupDomain (475ms)
-		LoadAssemblies (354ms)
-		AnalyzeDomain (215ms)
-			TypeCache.Refresh (8ms)
-			BuildScriptInfoCaches (193ms)
-			ResolveRequiredComponents (12ms)
-	FinalizeReload (859ms)
-		SetupLoadedEditorAssemblies (0ms)
-			InitializePlatformSupportModulesInManaged (3ms)
-			BeforeProcessingInitializeOnLoad (151ms)
-			ProcessInitializeOnLoadAttributes (361ms)
-			ProcessInitializeOnLoadMethodAttributes (111ms)
-			AfterProcessingInitializeOnLoad (5ms)
-		AwakeInstancesAfterBackupRestoration (21ms)
-Unloading 24 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6541 unused Assets / (6.2 MB). Loaded Objects now: 7386.
-Memory consumption went from 168.9 MB to 162.7 MB.
-Total: 13.646900 ms (FindLiveObjects: 0.683900 ms CreateObjectMapping: 0.797100 ms MarkObjects: 6.449900 ms  DeleteObjects: 5.713100 ms)
+Received Import Request.
+  Time since last request: 0.000078 seconds.
+  path: Assets/GameManager.cs
+  importAddress: Guid(f730d9572ebf799408cbf7ce626b2ac5) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GameManager.cs using Guid(f730d9572ebf799408cbf7ce626b2ac5) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (Import Result ID: '46396ffad946de1dd2853876fe0c7823') in 0.0143274 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=1e51cfdd5f16c94a947ea52238b7b8e9 DependenciesID=6e1e056bd4d1856a6e4fbcc16409a61d StaticDependenciesID=be5de9798fa909bf76bbd40b48ede804 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
-Prepare: number of updated asset objects reloaded= 0
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

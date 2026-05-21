@@ -83,7 +83,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8617885519729311654}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -98,7 +98,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -136,7 +136,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa2ef7f86515b054c81505ab1e4aa300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Destructible
-  brokenPrefab: {fileID: 4618439918139647209, guid: 14bf13282501acf4db77fde648fa9798, type: 3}
-  explosionForce: 12
-  explosionRadius: 8
   health: 100
+  destroyedVersion: {fileID: 4618439918139647209, guid: 14bf13282501acf4db77fde648fa9798, type: 3}

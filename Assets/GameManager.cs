@@ -3,11 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Панель победы")]
-    public GameObject victoryPanel;
+    [Header("Panel de Victoria")]
+    public GameObject victoryPanel;     // Panel que se muestra al ganar
 
     private bool gameEnded = false;
 
+    /// <summary>
+    /// Se llama cuando el jugador gana (después de 2 impactos)
+    /// </summary>
     public void RegisterVictory()
     {
         if (gameEnded) return;
@@ -17,6 +20,9 @@ public class GameManager : MonoBehaviour
             victoryPanel.SetActive(true);
     }
 
+    /// <summary>
+    /// Reinicia la escena actual
+    /// </summary>
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
