@@ -52,6 +52,6 @@ Simulador de un trebuchet (catapulta) basado en principios de cinemática. El ju
 2. Presionar **Play**
 3. Ajustar fuerza y ángulo
 4. Lanzar con `Space`
-5. Destruir el objetivo con 1 impactos
+5. Destruir el objetivo con 3 impactos
 
 **¡Gracias por revisar el proyecto!**
